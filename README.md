@@ -237,3 +237,5 @@ argocd app get k8s-cicd-demo-dev --refresh
 ## Licence
 
 MIT
+
+<!-- Pipeline test with correct Docker Hub token -->
