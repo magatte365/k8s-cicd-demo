@@ -14,3 +14,6 @@ replicas:
 
 commonLabels:
   environment: dev
+
+patchesStrategicMerge:
+  - patch-mongodb-uri.yaml

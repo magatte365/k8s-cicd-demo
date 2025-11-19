@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskmanager-backend
+spec:
+  template:
+    spec:
+      containers:
+      - name: backend
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://dev-mongodb-service:27017/taskmanager"
