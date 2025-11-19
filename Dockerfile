@@ -7,7 +7,7 @@ WORKDIR /app
 COPY app/package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install --production
 
 # Production image
 FROM node:18-alpine
