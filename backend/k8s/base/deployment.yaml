@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskmanager-backend
+  labels:
+    app: backend
+    component: taskmanager
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+      component: taskmanager
+  template:
+    metadata:
+      labels:
+        app: backend
+        component: taskmanager
+    spec:
+      containers:
+      - name: backend
+        image: magatte2380/taskmanager-backend:latest
+        ports:
+        - containerPort: 5000
+          name: http
+        env:
+        - name: APP_VERSION
+          value: "1.0.0" # APP_VERSION
+        - name: PORT
+          value: "5000"
+        - name: MONGODB_URI
+          value: "mongodb://mongodb-service:27017/taskmanager"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5
