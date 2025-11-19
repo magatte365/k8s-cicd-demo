@@ -10,3 +10,9 @@ spec:
         env:
         - name: MONGODB_URI
           value: "mongodb://dev-mongodb-service:27017/taskmanager"
+        - name: MONGO_URL
+          value: "mongodb://dev-mongodb-service:27017/taskmanager"
+        - name: DATABASE_URL
+          value: "mongodb://dev-mongodb-service:27017/taskmanager"
+        - name: DB_URI
+          value: "mongodb://dev-mongodb-service:27017/taskmanager"
