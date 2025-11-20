@@ -28,8 +28,10 @@ spec:
           value: "1.0.0" # APP_VERSION
         - name: PORT
           value: "5000"
-        - name: MONGODB_URI
+        - name: MONGO_URI
           value: "mongodb://mongodb-service:27017/taskmanager"
+        - name: JWT_SECRET
+          value: "mxa365563mox123"
         resources:
           requests:
             memory: "256Mi"
@@ -37,16 +39,17 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 5000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          failureThreshold: 3
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 5000
-          initialDelaySeconds: 10
-          periodSeconds: 5
+        # Health probes disabled - no /health endpoint in backend
+        # livenessProbe:
+        #   httpGet:
+        #     path: /health
+        #     port: 5000
+        #   initialDelaySeconds: 30
+        #   periodSeconds: 10
+        #   failureThreshold: 3
+        # readinessProbe:
+        #   httpGet:
+        #     path: /health
+        #     port: 5000
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 5

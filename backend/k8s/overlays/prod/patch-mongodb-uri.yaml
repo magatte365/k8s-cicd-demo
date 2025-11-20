@@ -8,5 +8,9 @@ spec:
       containers:
       - name: backend
         env:
-        - name: MONGODB_URI
+        - name: MONGO_URI
           value: "mongodb://prod-mongodb-service:27017/taskmanager"
+        - name: JWT_SECRET
+          value: "mxa365563mox123"
+        - name: PORT
+          value: "5000"
