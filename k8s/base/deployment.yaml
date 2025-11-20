@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: magatte2380/k8s-cicd-demo:dev-464e29f
+        image: magatte2380/k8s-cicd-demo:dev-3c3d564
         ports:
         - containerPort: 3000
           name: http
@@ -24,7 +24,7 @@ spec:
         - name: NODE_ENV
           value: "production"
         - name: APP_VERSION
-          value: "464e29f" # APP_VERSION
+          value: "3c3d564" # APP_VERSION
         resources:
           requests:
             memory: "128Mi"
