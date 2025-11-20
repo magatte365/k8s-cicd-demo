@@ -10,7 +10,7 @@ app.get('/health', (req, res) => {
 // Main endpoint
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to Kubernetes CI/CD Pipeline - DEV Environment! 🚀',
+    message: 'DÉMO POUR MON MAÎTRE DE STAGE - Pipeline CI/CD Automatisé! 🎉',
     version: process.env.APP_VERSION || '1.0.0',
     hostname: require('os').hostname(),
     timestamp: new Date().toISOString()
